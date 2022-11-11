@@ -1,16 +1,17 @@
-name: Cypress Tests
+name: run-on-docker
 on:
+  # Triggers the workflow on push or pull request events but only for the develop branch
   push:
-    branches: [main]
-  pull_request:
-     branches: [main]
-jobs: 
-  cypress-run: 
+    branches: [ develop ]
+jobs:
+  cypress-run:
     runs-on: ubuntu-latest
+    container: cypress/included:9.2.0
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - run: npm install
-      - run: npx cypress open
+      - uses: actions/checkout@v1
+      - run: cd "Part 09" && npm install && npm run cy:test:qa
+
+
+
     
          
