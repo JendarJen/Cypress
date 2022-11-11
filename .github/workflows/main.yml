@@ -2,7 +2,9 @@ name: run-on-docker
 on:
   # Triggers the workflow on push or pull request events but only for the develop branch
   push:
-    branches: [ develop ]
+    branches: [main]
+  pull_request:
+     branches: [main]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
