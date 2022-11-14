@@ -10,7 +10,7 @@ jobs:
     container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
       - uses: actions/checkout@v1
-      - run: cypress-io/github-action@v4.x.x
+      - run: cd "Cypress" && npm install && npm run cy:test:cypress open
 
 
 
